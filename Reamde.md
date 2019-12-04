@@ -41,4 +41,4 @@
 Перенаправления: 
 ![](https://github.com/isblokhin/web/blob/master/1.png) 
 Установленные cookie:
-![](02.png)
+![](https://github.com/isblokhin/web/blob/master/2.png)
