@@ -3,18 +3,17 @@
 # vim: set ft=ruby :
 
 MACHINES = {
-  :"vpns" => {
+  :"docker" => {
     :box_name => "centos/7",
     :ip_addr => "10.0.0.1",
     :memory => "256",
     :ansible => "playbook.yml"
   },
-  :"vpnc" => {
+  :"client" => {
     :box_name => "centos/7",
     :ip_addr => "10.0.0.2",
     :memory => "256",
-    :ansible => "playbook.yml"
-  }
+      }
 }
 
 Vagrant.configure("2") do |config|
@@ -31,9 +30,9 @@ Vagrant.configure("2") do |config|
         vb.memory = boxconfig[:memory]
         end
       # box.vm.provision "shell", path: boxconfig[:shell]
-      box.vm.provision "ansible_local" do |ansible|
-        ansible.playbook = boxconfig[:ansible]
-        end
+   #   box.vm.provision "ansible_local" do |ansible|
+   #     ansible.playbook = boxconfig[:ansible]
+   #     end
     end
   end
 end
