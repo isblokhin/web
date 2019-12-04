@@ -1,0 +1,38 @@
+---
+  
+  - name: install and configure OVPN
+    hosts: all
+    gather_facts: yes
+    remote_user: vagrant
+    become: true
+   
+    tasks:
+    - name: install packages
+      yum: 
+        name: "{{ packages }}"
+        state: present
+      notify:
+      - enable docker
+      - start docker
+
+    handlers:
+      - name: start docker
+        systemd:
+          name: docker
+          state: started
+
+      - name: enable docker
+        systemd:
+          name: docker
+          enabled: yes
+
+
+    vars:
+      packages:
+      - mc
+      - nano
+      - epel-release
+      - docker
+      - docker-compose
+
+...
